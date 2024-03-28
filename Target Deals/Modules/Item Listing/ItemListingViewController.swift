@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 protocol ItemListingViewDelegate {
-    func viewDidLoad()
     var listData: [ItemListCellData] { get }
+    func viewDidLoad()
     func productCellTapped(productId: Int)
 }
 
@@ -18,7 +18,7 @@ protocol ItemListingViewProtocol: AnyObject {
     func updateListData()
 }
 
-class ItemListingViewController: UIViewController {
+final class ItemListingViewController: UIViewController {
     let presenter: ItemListingViewDelegate
     private let tableView: UITableView = UITableView(frame: .zero)
     init(presenter: ItemListingViewDelegate) {

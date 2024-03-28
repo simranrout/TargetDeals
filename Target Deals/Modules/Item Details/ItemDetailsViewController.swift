@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 protocol ItemDetailsViewDelegate {
-    func viewDidLoaded()
     var productId: Int { get }
     var productDetails: ItemDetailsData? { get }
+    func viewDidLoaded()
 }
 
 
@@ -19,7 +19,7 @@ protocol ItemDetailsViewProtocol: AnyObject {
     func showProductDetailsData()
 }
 
-class ItemDetailsViewController: UIViewController {
+final class ItemDetailsViewController: UIViewController {
     let presenter: ItemDetailsViewDelegate
     let scrollView: UIScrollView = UIScrollView()
     let contentView: UIView = UIView(frame: .zero)

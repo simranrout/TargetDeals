@@ -16,7 +16,7 @@ protocol ItemDetailsInteractorProtocol {
     func fetchProductDetails(with config: APIConfiguration)
 }
 
-class ItemDetailsInteractor: ItemDetailsInteractorProtocol {
+final class ItemDetailsInteractor: ItemDetailsInteractorProtocol {
     private let networkManager: NetworkLayerManager = NetworkLayerManager<ItemDetailsData>()
     weak var presenter: ItemDetailsInteractorDelegate?
     

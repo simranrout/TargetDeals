@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ItemDetailsPresenter {
+final class ItemDetailsPresenter {
     private let router: ItemDetailsRouterProtocol
     weak var view: ItemDetailsViewProtocol?
     private let interactor: ItemDetailsInteractorProtocol
@@ -15,10 +15,7 @@ class ItemDetailsPresenter {
     
     var productDetails: ItemDetailsData? = nil {
         didSet(newValue) {
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                view?.showProductDetailsData()
-            }
+            view?.showProductDetailsData()
         }
     }
     
@@ -40,11 +37,11 @@ extension ItemDetailsPresenter: ItemDetailsViewDelegate {
 extension ItemDetailsPresenter: ItemDetailsInteractorDelegate {
     func recieveProductDetails(data: ItemDetailsData) {
         productDetails = data
-        print(data)
+        debugPrint(data)
     }
     
     func productDetailsDataError(error: Error) {
-        print(error)
+        debugPrint(error)
     }
 }
 

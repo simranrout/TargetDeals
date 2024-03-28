@@ -84,8 +84,8 @@
 		F3B0D8912BB4260A00825286 = {
 			isa = PBXGroup;
 			children = (
-				F3B0D8CD2BB4291E00825286 /* Helpers */,
 				F3B0D89C2BB4260A00825286 /* App Delegate */,
+				F3B0D8CD2BB4291E00825286 /* Helpers */,
 				F3B0D8B22BB4262B00825286 /* Modules */,
 				F3B0D89B2BB4260A00825286 /* Products */,
 				F3B0D8B12BB4262100825286 /* Resources */,
@@ -112,9 +112,9 @@
 		F3B0D8B12BB4262100825286 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F3B0D8AB2BB4260C00825286 /* Info.plist */,
-				F3B0D8B32BB4264D00825286 /* Storyboard */,
 				F3B0D8A62BB4260C00825286 /* Assets.xcassets */,
+				F3B0D8AB2BB4260C00825286 /* Info.plist */,
+				F3B0D8A82BB4260C00825286 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -128,23 +128,15 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		F3B0D8B32BB4264D00825286 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				F3B0D8A82BB4260C00825286 /* LaunchScreen.storyboard */,
-			);
-			path = Storyboard;
-			sourceTree = "<group>";
-		};
 		F3B0D8C02BB428CE00825286 /* Item Listing */ = {
 			isa = PBXGroup;
 			children = (
-				F3CCBB992BB491B50044FFCE /* View */,
+				F3CCBB7D2BB42FEF0044FFCE /* ItemListingEntity.swift */,
+				F3CCBB7C2BB42FEF0044FFCE /* ItemListingInteractor.swift */,
 				F3CCBB792BB42FEF0044FFCE /* ItemListingPresenter.swift */,
 				F3CCBB7A2BB42FEF0044FFCE /* ItemListingRouter.swift */,
 				F3CCBB7B2BB42FEF0044FFCE /* ItemListingViewController.swift */,
-				F3CCBB7C2BB42FEF0044FFCE /* ItemListingInteractor.swift */,
-				F3CCBB7D2BB42FEF0044FFCE /* ItemListingEntity.swift */,
+				F3CCBB992BB491B50044FFCE /* View */,
 			);
 			path = "Item Listing";
 			sourceTree = "<group>";
@@ -152,8 +144,8 @@
 		F3B0D8CD2BB4291E00825286 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F3CCBB842BB431D70044FFCE /* Extensions */,
 				F3CCBB832BB4314F0044FFCE /* API Repo */,
+				F3CCBB842BB431D70044FFCE /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -161,9 +153,9 @@
 		F3CCBB832BB4314F0044FFCE /* API Repo */ = {
 			isa = PBXGroup;
 			children = (
+				F3CCBB8F2BB45EC60044FFCE /* APIConfiguration.swift */,
 				F3CCBB8D2BB45EA20044FFCE /* NetworkLayerManager.swift */,
 				F3CCBB912BB4637A0044FFCE /* URLRequestBuilder.swift */,
-				F3CCBB8F2BB45EC60044FFCE /* APIConfiguration.swift */,
 			);
 			path = "API Repo";
 			sourceTree = "<group>";
@@ -171,13 +163,13 @@
 		F3CCBB842BB431D70044FFCE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F3CCBB9C2BB4A1120044FFCE /* UIColor+Extensions.swift */,
-				F3CCBB8B2BB432660044FFCE /* UITableView+Extensions.swift */,
 				F3CCBB862BB431EB0044FFCE /* Array+NSLayoutConstraint+Extensions.swift */,
-				F3CCBB9E2BB4A4240044FFCE /* UIStackView+Extensions.swift */,
-				F3CCBB892BB432290044FFCE /* UIView+Extensions.swift */,
 				F3CCBB852BB431EB0044FFCE /* NSLayoutConstraint+Extensions.swift */,
+				F3CCBB9C2BB4A1120044FFCE /* UIColor+Extensions.swift */,
 				F3CCBBA02BB4B1DB0044FFCE /* UIImageView+Extensions.swift */,
+				F3CCBB9E2BB4A4240044FFCE /* UIStackView+Extensions.swift */,
+				F3CCBB8B2BB432660044FFCE /* UITableView+Extensions.swift */,
+				F3CCBB892BB432290044FFCE /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -193,12 +185,12 @@
 		F3CCBBA22BB4B5BA0044FFCE /* Item Details */ = {
 			isa = PBXGroup;
 			children = (
-				F3CCBBAD2BB4C8720044FFCE /* View */,
+				F3CCBBA72BB4B5D00044FFCE /* ItemDetailsEntity.swift */,
+				F3CCBBA62BB4B5D00044FFCE /* ItemDetailsInteractor.swift */,
 				F3CCBBA32BB4B5D00044FFCE /* ItemDetailsPresenter.swift */,
 				F3CCBBA42BB4B5D00044FFCE /* ItemDetailsRouter.swift */,
 				F3CCBBA52BB4B5D00044FFCE /* ItemDetailsViewController.swift */,
-				F3CCBBA62BB4B5D00044FFCE /* ItemDetailsInteractor.swift */,
-				F3CCBBA72BB4B5D00044FFCE /* ItemDetailsEntity.swift */,
+				F3CCBBAD2BB4C8720044FFCE /* View */,
 			);
 			path = "Item Details";
 			sourceTree = "<group>";
@@ -206,8 +198,8 @@
 		F3CCBBAD2BB4C8720044FFCE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3CCBBAE2BB4C9100044FFCE /* ProductDetailsView.swift */,
 				F3CCBBB02BB4D8A60044FFCE /* ProductDescriptionView.swift */,
+				F3CCBBAE2BB4C9100044FFCE /* ProductDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

@@ -8,11 +8,10 @@
 import Foundation
 import UIKit
 
-class ProductDescriptionView: UIView {
+final class ProductDescriptionView: UIView {
     private let productDescriptionView: UIStackView = UIStackView().axis(.vertical).spacing(21)
     private let productDetailsLabel: UILabel = UILabel()
     private let productDescriptionLabel: UILabel = UILabel()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,15 +21,17 @@ class ProductDescriptionView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func intialSetup() {
+}
+
+private extension ProductDescriptionView {
+    func intialSetup() {
         backgroundColor = .white
         let containerView = setupContainerView()
         setupTitleView()
-        (containerView).activate()
+        containerView.activate()
     }
     
-    private func setupContainerView() -> Constraints {
+    func setupContainerView() -> Constraints {
         return addSubview(productDescriptionView, with: [
             .top(constant: 16),
             .bottom(constant: 16),
@@ -39,9 +40,7 @@ class ProductDescriptionView: UIView {
         ])
     }
     
-    
-    private func setupTitleView() {
-        
+    func setupTitleView() {
         productDetailsLabel.textColor = .black
         productDetailsLabel.font = .systemFont(ofSize: 22, weight: .bold)
         productDetailsLabel.numberOfLines = 1
@@ -51,9 +50,10 @@ class ProductDescriptionView: UIView {
         productDescriptionLabel.numberOfLines = 0
         
         productDescriptionView.addArrangedSubviews(productDetailsLabel, productDescriptionLabel)
-        
     }
-    
+}
+
+extension ProductDescriptionView {
     func configure(data: ItemDetailsData) {
         productDetailsLabel.text = "Product Details"
         productDescriptionLabel.text = data.description

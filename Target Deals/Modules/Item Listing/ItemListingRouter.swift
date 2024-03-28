@@ -12,7 +12,7 @@ protocol ItemListingRouterProtocol {
     func pushProductDetailsView(productId: Int)
 }
 
-class ItemListingRouter {
+final class ItemListingRouter {
     var productId: Int = 0
     private weak var viewController: ItemListingViewController?
     

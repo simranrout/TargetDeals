@@ -9,14 +9,15 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let resultImage = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = resultImage
-                    }
-                }
+    func setImage(from url: URL, with placeholder: UIImage? = UIImage(named: "NoImage")) {
+        NetworkLayerManager<Data>().download(with: url) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let data):
+                image = UIImage(data: data)
+            case .failure(let failure):
+                debugPrint(failure)
+                image = placeholder
             }
         }
     }

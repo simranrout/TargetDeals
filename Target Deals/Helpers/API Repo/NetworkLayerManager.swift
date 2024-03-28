@@ -18,7 +18,7 @@ final class NetworkLayerManager<T: Decodable>: NetworkLayerProtocol {
         let request = URLRequestBuilder().build(apiConfig)
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-        request.responseDecodable(of: T.self, queue: .global(), decoder: jsonDecoder) { response in
+        request.responseDecodable(of: T.self, decoder: jsonDecoder) { response in
             switch response.result {
             case .success(let data):
                 completionHandler(.success(data))
@@ -26,5 +26,21 @@ final class NetworkLayerManager<T: Decodable>: NetworkLayerProtocol {
                 completionHandler(.failure(error))
             }
         }
+    }
+    
+    func download(with url: URL, completionHandler: @escaping (Result<Data, Error>) -> Void) {
+        AF.request(url).response(completionHandler: { response in
+            switch response.result {
+            case .success(let data):
+                if let data {
+                    completionHandler(.success(data))
+                } else {
+                    let error = NSError(domain: "error", code: 0, userInfo: [NSLocalizedDescriptionKey: "data is nil"])
+                    completionHandler(.failure(error))
+                }
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        })
     }
 }

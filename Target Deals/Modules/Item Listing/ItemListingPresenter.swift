@@ -7,16 +7,13 @@
 
 import Foundation
 
-class ItemListingPresenter {
-    private let router: ItemListingRouterProtocol
+final class ItemListingPresenter {
     weak var view: ItemListingViewProtocol?
+    private let router: ItemListingRouterProtocol
     private let interactor: ItemListingInteractorProtocol
     var listData: [ItemListCellData] = [] {
         didSet {
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                view?.updateListData()
-            }
+            view?.updateListData()
         }
     }
     
@@ -43,7 +40,7 @@ extension ItemListingPresenter: ItemListingInteractorDelegate {
     }
     
     func listingDataError(error: Error) {
-        print(error)
+        debugPrint(error)
     }
 }
 

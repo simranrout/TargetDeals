@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-class ProductDetailsView: UIView {
+final class ProductDetailsView: UIView {
     let productImageView: UIImageView = UIImageView()
     private let containerView: UIStackView = UIStackView().axis(.vertical).spacing(28)
-
+    
     private let priceDetailsView: UIStackView = UIStackView().axis(.horizontal).spacing(4)
     private let salePriceLabel: UILabel = UILabel()
     private let regularPriceLabel: UILabel = UILabel()
@@ -19,8 +19,6 @@ class ProductDetailsView: UIView {
     private let productDetailsView: UIStackView = UIStackView().axis(.vertical).spacing(11)
     private let productTitleLabel: UILabel = UILabel()
     private let fulfillmentLabel: UILabel = UILabel()
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,8 +28,10 @@ class ProductDetailsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func intialSetup() {
+}
+
+extension ProductDetailsView {
+    func intialSetup() {
         backgroundColor = .white
         let containerView = setupContainerView()
         let productImageView = setupProductImageView()
@@ -40,7 +40,7 @@ class ProductDetailsView: UIView {
         (containerView + productImageView).activate()
     }
     
-    private func setupContainerView() -> Constraints {
+    func setupContainerView() -> Constraints {
         return addSubview(containerView, with: [
             .top(constant: 16),
             .bottom(constant: 10),
@@ -49,7 +49,7 @@ class ProductDetailsView: UIView {
         ])
     }
     
-    private func setupProductImageView() -> Constraints {
+    func setupProductImageView() -> Constraints {
         containerView.addArrangedSubview(productImageView)
         productImageView.contentMode = .scaleAspectFill
         productImageView.cornerRadius(8)
@@ -59,7 +59,7 @@ class ProductDetailsView: UIView {
         ])
     }
     
-    private func setupTitleView() {
+    func setupTitleView() {
         containerView.addArrangedSubview(productDetailsView)
         
         productTitleLabel.textColor = .black
@@ -72,7 +72,7 @@ class ProductDetailsView: UIView {
         
     }
     
-    private func setupPriceView() {
+    func setupPriceView() {
         salePriceLabel.textColor = UIColor(r: 170)
         salePriceLabel.font = .systemFont(ofSize: 21, weight: .heavy)
         salePriceLabel.numberOfLines = 1
@@ -88,7 +88,9 @@ class ProductDetailsView: UIView {
         
         productDetailsView.addArrangedSubviews(priceDetailsView, fulfillmentLabel)
     }
-    
+}
+
+extension ProductDetailsView {
     func configure(data: ItemDetailsData) {
         salePriceLabel.isHidden = data.salePrice == nil
         salePriceLabel.text = data.salePrice?.displayString
@@ -96,14 +98,15 @@ class ProductDetailsView: UIView {
         regularPriceLabel.isHidden = data.regularPrice == nil
         regularPriceLabel.text = data.regularPrice?.displayString
         
-        
         productTitleLabel.text = data.title
         productTitleLabel.isHidden = data.title.isEmpty
         
         fulfillmentLabel.text = data.fulfillment
         fulfillmentLabel.isHidden = data.fulfillment.isEmpty
         
-        guard let imageUrl = data.url else { return }
-        productImageView.load(url: imageUrl)
+        productImageView.isHidden = data.url == nil
+        if let imageUrl = data.url {
+            productImageView.setImage(from: imageUrl)
+        }
     }
 }

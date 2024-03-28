@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemListTableViewCell: UITableViewCell, ReusableView {
+final class ItemListTableViewCell: UITableViewCell, ReusableView {
     private let containerView: UIStackView = UIStackView().axis(.horizontal).spacing(16)
     private let productImageView: UIImageView = UIImageView()
     private let productDetailsView: UIStackView = UIStackView().axis(.vertical).spacing(8)
@@ -41,18 +41,19 @@ class ItemListTableViewCell: UITableViewCell, ReusableView {
         productImageView.image = nil
         super.prepareForReuse()
     }
-    
-    private func setupContainerStackView() -> Constraints {
+}
+
+private extension ItemListTableViewCell {
+    func setupContainerStackView() -> Constraints {
         return contentView.addSubview(containerView, with: [
             .top(constant: 16),
             .bottom(constant: 16),
             .leading(constant: 16),
             .trailing(constant: 16)
         ])
-        
     }
     
-    private func setupProductImageView() -> Constraints {
+    func setupProductImageView() -> Constraints {
         containerView.addArrangedSubview(productImageView)
         productImageView.contentMode = .scaleAspectFill
         productImageView.cornerRadius(8)
@@ -62,7 +63,7 @@ class ItemListTableViewCell: UITableViewCell, ReusableView {
         ])
     }
     
-    private func setupProductDetailsView() {
+    func setupProductDetailsView() {
         containerView.addArrangedSubview(productDetailsView)
         setupPriceDetailsView()
         fulfillmentLabel.textColor = UIColor(102)
@@ -80,7 +81,7 @@ class ItemListTableViewCell: UITableViewCell, ReusableView {
         productDetailsView.setCustomSpacing(.zero, after: priceDetailsView)
     }
     
-    private func setupPriceDetailsView() {
+    func setupPriceDetailsView() {
         salePriceLabel.textColor = UIColor(r: 170)
         salePriceLabel.font = .systemFont(ofSize: 21, weight: .heavy)
         salePriceLabel.numberOfLines = 1
@@ -93,7 +94,9 @@ class ItemListTableViewCell: UITableViewCell, ReusableView {
         priceDetailsView.addArrangedSubviews(salePriceLabel, regularPriceLabel)
         productDetailsView.addArrangedSubview(priceDetailsView)
     }
-   
+}
+
+extension ItemListTableViewCell {
     func configure(with data: ItemListCellData) {
         salePriceLabel.text = data.discountedPrice
         salePriceLabel.isHidden = data.discountedPrice.isEmpty
@@ -108,8 +111,10 @@ class ItemListTableViewCell: UITableViewCell, ReusableView {
         productTitleLabel.isHidden = data.discountedPrice.isEmpty
         
         avalabilityLabel.attributedText = data.availability
-        guard let imageUrl = data.imageUrl else { return }
-        productImageView.load(url: imageUrl)
         
+        productImageView.isHidden = data.imageUrl == nil
+        if let imageUrl = data.imageUrl {
+            productImageView.setImage(from: imageUrl)
+        }
     }
 }

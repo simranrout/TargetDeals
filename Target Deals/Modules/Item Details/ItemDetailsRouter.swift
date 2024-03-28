@@ -11,7 +11,7 @@ import UIKit
 protocol ItemDetailsRouterProtocol {
 }
 
-class ItemDetailsRouter {
+final class ItemDetailsRouter {
     
     private weak var viewController: ItemDetailsViewController?
     
