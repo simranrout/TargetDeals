@@ -37,7 +37,6 @@ extension ItemDetailsPresenter: ItemDetailsViewDelegate {
 extension ItemDetailsPresenter: ItemDetailsInteractorDelegate {
     func recieveProductDetails(data: ItemDetailsData) {
         productDetails = data
-        debugPrint(data)
     }
     
     func productDetailsDataError(error: Error) {

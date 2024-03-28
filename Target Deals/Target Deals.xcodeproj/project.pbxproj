@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3331DFF2BB543B9008F62CE /* BottomCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3331DFE2BB543B9008F62CE /* BottomCartView.swift */; };
 		F3B0D89E2BB4260A00825286 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0D89D2BB4260A00825286 /* AppDelegate.swift */; };
 		F3B0D8A02BB4260A00825286 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0D89F2BB4260A00825286 /* SceneDelegate.swift */; };
 		F3B0D8A72BB4260C00825286 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B0D8A62BB4260C00825286 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F3331DFE2BB543B9008F62CE /* BottomCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCartView.swift; sourceTree = "<group>"; };
 		F3B0D89A2BB4260A00825286 /* Target Deals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Target Deals.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3B0D89D2BB4260A00825286 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3B0D89F2BB4260A00825286 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		F3CCBBAD2BB4C8720044FFCE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F3331DFE2BB543B9008F62CE /* BottomCartView.swift */,
 				F3CCBBB02BB4D8A60044FFCE /* ProductDescriptionView.swift */,
 				F3CCBBAE2BB4C9100044FFCE /* ProductDetailsView.swift */,
 			);
@@ -289,6 +292,7 @@
 				F3CCBBAA2BB4B5D00044FFCE /* ItemDetailsViewController.swift in Sources */,
 				F3CCBB812BB42FEF0044FFCE /* ItemListingInteractor.swift in Sources */,
 				F3CCBBAC2BB4B5D00044FFCE /* ItemDetailsEntity.swift in Sources */,
+				F3331DFF2BB543B9008F62CE /* BottomCartView.swift in Sources */,
 				F3B0D89E2BB4260A00825286 /* AppDelegate.swift in Sources */,
 				F3CCBBAB2BB4B5D00044FFCE /* ItemDetailsInteractor.swift in Sources */,
 				F3CCBB9F2BB4A4240044FFCE /* UIStackView+Extensions.swift in Sources */,

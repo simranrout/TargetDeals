@@ -8,6 +8,16 @@
 import UIKit
 
 public extension UIView {
+    
+    @discardableResult func addShadow(radius: CGFloat = 1, colour: UIColor = .black, opacity: Float = 0.5, offset: CGSize = CGSize(width: 1, height: 1)) -> Self {
+        layer.shadowColor = colour.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = offset
+        layer.shadowRadius = radius
+        layer.masksToBounds = false
+        return self
+    }
+    
     @discardableResult func cornerRadius(_ radius: CGFloat, maskToBounds: Bool = true) -> Self {
         layer.cornerRadius = radius
         layer.masksToBounds = maskToBounds

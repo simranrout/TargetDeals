@@ -21,10 +21,13 @@ protocol ItemDetailsViewProtocol: AnyObject {
 
 final class ItemDetailsViewController: UIViewController {
     let presenter: ItemDetailsViewDelegate
+    
     let scrollView: UIScrollView = UIScrollView()
     let contentView: UIView = UIView(frame: .zero)
     let productBannerView: ProductDetailsView = ProductDetailsView(frame: .zero)
     let productDescriptionView: ProductDescriptionView = ProductDescriptionView(frame: .zero)
+    let bottomCartView: BottomCartView = BottomCartView(frame: .zero)
+    
     init(presenter: ItemDetailsViewDelegate) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -41,35 +44,43 @@ final class ItemDetailsViewController: UIViewController {
     
     private func initialSetup() {
         title = "Detail"
+        view.backgroundColor = .white
         presenter.viewDidLoaded()
         scrollView.backgroundColor = UIColor.secondarySystemBackground
-        (view.addSubview(scrollView, considerSafeArea: true, with: [
-            .top(),
-            .bottom(),
-            .leading(),
-            .trailing()
-        ])
-        +
-        scrollView.addSubview(contentView, with: [
-            .top(),
-            .bottom(),
-            .leading(),
-            .trailing()
-        ])
-        +
-        contentView.addSubview(productBannerView, with: [
-            .top(),
-            .leading(),
-            .trailing()
-        ])
-        +
-        contentView.addSubview(productDescriptionView, considerSafeArea: true, with: [
-            .top(constant: 16, from: productBannerView.bottomAnchor),
-            .leading(),
-            .trailing(),
-            .bottom()
-            
-        ])).activate()
+        (
+            view.addSubview(scrollView, considerSafeArea: true, with: [
+                .top(),
+                .leading(),
+                .trailing()
+            ])
+            +
+            scrollView.addSubview(contentView, with: [
+                .top(),
+                .bottom(),
+                .leading(),
+                .trailing()
+            ])
+            +
+            contentView.addSubview(productBannerView, with: [
+                .top(),
+                .leading(),
+                .trailing()
+            ])
+            +
+            contentView.addSubview(productDescriptionView, considerSafeArea: true, with: [
+                .top(constant: 16, from: productBannerView.bottomAnchor),
+                .leading(),
+                .trailing(),
+                .bottom()
+            ])
+            +
+            view.addSubview(bottomCartView, with: [
+                .leading(),
+                .trailing(),
+                .bottom(),
+                .top(from: scrollView.bottomAnchor)
+            ])
+        ).activate()
     }
 }
 

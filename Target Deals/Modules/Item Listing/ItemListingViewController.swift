@@ -42,6 +42,7 @@ final class ItemListingViewController: UIViewController {
     
     private func setupView() {
         self.title = "List"
+        view.backgroundColor = .white
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .white
