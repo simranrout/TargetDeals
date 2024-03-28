@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>Description</key>
+	<string>Create VIPER classes for a module</string>
+	<key>Summary</key>
+	<string>Create VIPER classes for a module</string>
+	<key>SortOrder</key>
+	<string>1</string>
+	<key>Platform</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>AllowedTypes</key>
+	<array>
+		<string>public.swift-source</string>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>ModuleName</string>
+			<key>Required</key>
+			<string>true</string>
+			<key>Name</key>
+			<string>Module name:</string>
+			<key>Description</key>
+			<string>Name of the Module to create</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>NotPersisted</key>
+			<string>true</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_ModuleName:identifier___</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>withInteractor</string>
+			<key>Required</key>
+			<string>true</string>
+			<key>Name</key>
+			<string>Create corresponding Interactor and Entity</string>
+			<key>Description</key>
+			<string>Whether this node has a corresponding interactor</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<string>true</string>
+			<key>NotPersisted</key>
+			<string>true</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>viewType</string>
+			<key>Required</key>
+			<string>true</string>
+			<key>Name</key>
+			<string>View Type</string>
+			<key>Description</key>
+			<string>The type of the view to create</string>
+			<key>Type</key>
+			<string>popup</string>
+			<key>Default</key>
+			<string>UIViewController</string>
+			<key>Values</key>
+			<array>
+				<string>UIViewController</string>
+				<string>UIView</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
